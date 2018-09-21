@@ -9,9 +9,9 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     fname = os.path.join(app.instance_path)
-    sname = fname.split('HackingNotes')
-    print(sname[0]+'HackingNotes')
-    fname = sname[0]+'HackingNotes/Notes/'
+    sname = fname.split('StudyNotes')
+    print(sname[0]+'StudyNotes')
+    fname = sname[0]+'StudyNotes/Notes/'
     data = []
     for (dirpath, dirnames, files) in os.walk(fname):
         res = {}

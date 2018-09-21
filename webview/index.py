@@ -10,11 +10,13 @@ app = Flask(__name__)
 def index():
     fname = os.path.join(app.instance_path)
     sname = fname.split('StudyNotes')
-    print(sname[0]+'StudyNotes')
     fname = sname[0]+'StudyNotes/Notes/'
     data = []
     for (dirpath, dirnames, files) in os.walk(fname):
+        print(dirpath, " -> ", dirnames)
         res = {}
+        if dirpath.split('/')[-1] == '':
+            continue
         res.update({'name': dirpath.split('/')[-1]})
         res.update({'children': []})
         for file in files:
@@ -23,7 +25,7 @@ def index():
                 ques = ques.rstrip('\r\n')
                 res['children'].append({'name': ques})
         data.append(res)
-    return render_template('index.html', data=json.dumps(data))
+    return render_template('index.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

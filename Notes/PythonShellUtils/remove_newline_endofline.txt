@@ -1,5 +1,0 @@
-How does one remove end of line '\r\n' charaters
--------------------------------------------------
-string_var.rstrip('\r\n')
-
-- this will clear the newline char in strings of shell programs

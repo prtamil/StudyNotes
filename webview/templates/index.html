@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title> Questions for You </title>
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='tree.jquery.js') }}"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='jqtree.css') }}"> 
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='mine.css') }}">
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h3> Questions </h3>
+            <div id="tree1"></div>
+        </div>
+    <script>
+
+$(function() {
+    $('#tree1').tree({
+        data:{{ data|safe }}
+    });
+});
+    </script>
+    </body>
+</html>
